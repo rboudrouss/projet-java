@@ -2,6 +2,14 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class DNutri {
+    public class InvalidDNutriException extends Exception {
+        private static final long serialVersionUID = 1L;
+
+        public InvalidDNutriException() {
+            super("The data seem to be incorect");
+        }
+    }
+
     // TODO horrible code, would be better if i used a hash map
     // Déclaration nutritionnelle pour 100g ou 100ml
     public static final double kj_to_kcal = 0.239;
@@ -45,8 +53,11 @@ public class DNutri {
         this.amidon = amidon;
         this.fibres = fibres;
         if (!isValid()) {
-            // TODO raise excpetion not valide DNutri
-            System.out.println("Not Valid DNutri");
+            try {
+                throw new InvalidDNutriException();
+            } catch (DNutri.InvalidDNutriException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -69,8 +80,7 @@ public class DNutri {
     public static DNutri fromMap(Map<String, Double> m) {
         for (String ele : listElements) {
             if (!m.containsKey(ele)) {
-                // TODO raise error
-                System.out.println("OULA FRÉROT C LA MERDE");
+                throw new IllegalStateException("La map n'a pas l'élément " + ele);
             }
         }
 
@@ -87,8 +97,7 @@ public class DNutri {
 
     public static DNutri meanDN(ArrayList<Ingredient> l, ArrayList<Integer> q) {
         if (l.size() != q.size()) {
-            // TODO raise error
-            System.out.println("OULA C LA MERDE");
+            throw new IllegalStateException("Les deux liste ne sont pas de même longueur");
         }
         DNutri decNut = new DNutri();
         for (int i = 0; i < l.size(); i++) {

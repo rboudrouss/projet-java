@@ -29,8 +29,7 @@ public abstract class Recette {
         allIngredients.add(ingredient);
         quantities.add(quantity);
         if (allIngredients.size() != quantities.size()) {
-            // TODO raise error
-            System.out.println("OULA C LA MERDE");
+            throw new IllegalStateException("Les deux liste ne sont pas de même longueur");
         }
     }
 

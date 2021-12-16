@@ -23,8 +23,7 @@ public class Soupe extends Recette {
     @Override
     public void generateRecette() {
         if (allIngredients.size() != quantities.size()) {
-            // TODO raise excpetion
-            System.out.print("ché la merde");
+            throw new IllegalStateException("Les deux liste ne sont pas de même longueur");
         }
         System.out.println("1- Dans une casserole, mettez 200ml d'eau à bouillir");
         int nb = 2;
