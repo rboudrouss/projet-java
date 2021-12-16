@@ -19,8 +19,7 @@ public class PatePlat extends Recette {
     @Override
     public void generateRecette() {
         if (allIngredients.size() != quantities.size()) {
-            // TODO raise excpetion
-            System.out.print("ché la merde");
+            throw new IllegalStateException("Les deux liste ne sont pas de même longueur");
         }
         System.out.println("1- mettre les pâtes " + pate.nom + " à cuire dans une casserôle");
         System.out.println("2- ajouter la sauce " + sauce.nom + " à vos pâtes");
