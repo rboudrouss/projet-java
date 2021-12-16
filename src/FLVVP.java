@@ -27,8 +27,7 @@ public class FLVVP extends Ingredient {
                     "ajouter vos " + quantity + "g de " + super.nom
             };
         }
-
-        return null;
+        return new String[] { "ajouter vos " + quantity + "g de " + super.nom };
     }
 
 }
