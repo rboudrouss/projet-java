@@ -6,7 +6,7 @@ public abstract class Recette {
     ArrayList<Ingredient> allIngredients = new ArrayList<Ingredient>();
     ArrayList<Integer> quantities = new ArrayList<Integer>();
 
-    public abstract String generateRecette();
+    public abstract void generateRecette();
 
     public int getMasseTot() {
         int rep = 0;

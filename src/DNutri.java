@@ -44,6 +44,10 @@ public class DNutri {
         this.sel = sel;
         this.amidon = amidon;
         this.fibres = fibres;
+        if (!isValid()) {
+            // TODO raise excpetion not valide DNutri
+            System.out.println("Not Valid DNutri");
+        }
     }
 
     public DNutri() {
@@ -118,6 +122,10 @@ public class DNutri {
                 sel,
                 amidon,
                 fibres);
+    }
+
+    public boolean isValid() {
+        return (gras + glucides + proteine + sel + amidon + fibres) <= 100 && sucres <= glucides;
     }
 
 }
