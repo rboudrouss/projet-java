@@ -54,9 +54,16 @@ public class DNutri {
         this(0, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    public String showDN() {
-        // TODO
-        return "";
+    public void showDN() {
+        System.out.println("Energie : " + String.format("%.2f", energie) + "kj | "
+                + String.format("%.2f", conv_kj_to_kcal(energie)) + "kcal");
+        System.out.println("Gras : " + String.format("%.2f", gras) + "g");
+        System.out.println("Glucides : " + String.format("%.2f", glucides) + "g");
+        System.out.println("Sucres : " + String.format("%.2f", sucres) + "g");
+        System.out.println("Proteine : " + String.format("%.2f", proteine) + "g");
+        System.out.println("Sel : " + String.format("%.2f", sel) + "g");
+        System.out.println("Amidon : " + String.format("%.2f", amidon) + "g");
+        System.out.println("Fibres : " + String.format("%.2f", fibres) + "g");
     }
 
     public static DNutri fromMap(Map<String, Double> m) {
@@ -101,14 +108,14 @@ public class DNutri {
             tot += i;
         }
 
-        decNut.energie /= tot * 100;
-        decNut.gras /= tot * 100;
-        decNut.glucides /= tot * 100;
-        decNut.sucres /= tot * 100;
-        decNut.proteine /= tot * 100;
-        decNut.sel /= tot * 100;
-        decNut.amidon /= tot * 100;
-        decNut.fibres /= tot * 100;
+        decNut.energie /= tot;
+        decNut.gras /= tot;
+        decNut.glucides /= tot;
+        decNut.sucres /= tot;
+        decNut.proteine /= tot;
+        decNut.sel /= tot;
+        decNut.amidon /= tot;
+        decNut.fibres /= tot;
         return decNut;
     }
 

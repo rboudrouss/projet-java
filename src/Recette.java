@@ -17,7 +17,12 @@ public abstract class Recette {
     }
 
     public DNutri generateDecNut() {
-        return DNutri.meanDN(allIngredients, quantities);
+        decNut = DNutri.meanDN(allIngredients, quantities);
+        return decNut;
+    }
+
+    public void showDN() {
+        this.decNut.showDN();
     }
 
     public void addIngredient(Ingredient ingredient, int quantity) {

@@ -13,7 +13,7 @@ public class PatePlat extends Recette {
             // TODO raise excpetion
             System.out.print("ché la merde");
         }
-        System.out.print("1- mettre les pâtes " + pate.nom + " à cuire dans une casserôle");
+        System.out.println("1- mettre les pâtes " + pate.nom + " à cuire dans une casserôle");
         System.out.println("2- ajouter la sauce " + sauce.nom + " à vos pâtes");
 
         int i;

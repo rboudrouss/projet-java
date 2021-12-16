@@ -16,14 +16,14 @@ public class Soupe extends Recette {
             System.out.print("ché la merde");
         }
         System.out.println("1- Dans une casserole, mettez 200ml d'eau à bouillir");
-        int i;
-        for (i = 0; i < allIngredients.size(); i++) {
+        int nb = 2;
+        for (int i = 0; i < allIngredients.size(); i++) {
             for (String etape : allIngredients.get(i).etapeRecette(quantities.get(i))) {
-                System.out.println((i + 2) + "- " + etape);
+                System.out.println((nb++) + "- " + etape);
             }
         }
 
-        System.out.println((i + 2) + "- Laissez bouillir pendant 15 minutes\n Et voilà !");
+        System.out.println((nb++) + "- Laissez bouillir pendant 15 minutes\n Et voilà !");
 
         return;
 
