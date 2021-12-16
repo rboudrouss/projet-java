@@ -1,10 +1,19 @@
 public class PatePlat extends Recette {
     Ingredient pate;
     Sauce sauce;
+    private static PatePlat instance;
 
-    public PatePlat(Ingredient pate, Sauce sauce) {
+    private PatePlat(Ingredient pate, Sauce sauce) {
         this.pate = pate;
         this.sauce = sauce;
+    }
+
+    public static PatePlat getInstance(Ingredient pate, Sauce sauce) {
+        if (instance == null) {
+            instance = new PatePlat(pate, sauce);
+        }
+        return instance;
+
     }
 
     @Override

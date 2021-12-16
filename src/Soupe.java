@@ -1,4 +1,15 @@
 public class Soupe extends Recette {
+    private static Soupe instance;
+
+    private Soupe() {
+    }
+
+    public static Soupe getInstance() {
+        if (instance == null) {
+            instance = new Soupe();
+        }
+        return instance;
+    }
 
     @Override
     public String toString() {

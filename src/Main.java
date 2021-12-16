@@ -56,7 +56,7 @@ public class Main {
 
         if (Math.random() <= 0.5) {
             System.out.println("Aujourd'hui ça sera des pâtes !");
-            PatePlat plat = new PatePlat(
+            PatePlat plat = PatePlat.getInstance(
                     lO.get((int) Math.floor(Math.random() * lO.size())),
                     lS.get((int) Math.floor(Math.random() * lS.size())));
             System.out.println("Plus précisement ça sera des " + plat.toString() + " !");
@@ -73,7 +73,7 @@ public class Main {
 
         } else {
             System.out.println("Aujourd'hui ça sera une soupe !");
-            Soupe plat = new Soupe();
+            Soupe plat = Soupe.getInstance();
 
             plat.addIngredient(lF.get((int) Math.floor(Math.random() * lF.size())), 150);
             plat.addIngredient(lC.get((int) Math.floor(Math.random() * lC.size())), 1);
