@@ -1,0 +1,112 @@
+@startuml uml
+
+class Condiment{
+    +Condiment()
+    +String[] etapeRecette()
+}
+
+class DNutri{
+    +{static} final double kj_to_kcal
+    +{static} final String[] listElements
+    +double energie
+    +double gras
+    +double glucides
+    +double sucres
+    +double proteine
+    +double sel
+    +double amidon
+    +double fibres
+
+    +DNutri()
+    +{static} double conv_kcal_to_kj()
+    +{static} double conv_kj_to_kcal()
+    +{static} DNutri fromMap()
+    +{static} DNutri meanDN()
+    +void showDN()
+    +DNutri clone()
+    +boolean isValid()
+}
+
+class FLVVP{
+    -boolean couper
+
+    +FLVVP()
+    +String[] etapeRecette()
+    +FLVVP clone()
+}
+
+abstract class Ingredient{
+    +String nom
+    +DNutri decNut
+
+    +Ingredient()
+    +String getNom()
+    +DNutri getDNutri()
+    +{abstract} String[] etapeRecette()
+}
+
+class OtherIngredient{
+    +OtherIngredient()
+    +String[] etapeRecette()
+    +OtherIngredient clone()
+}
+
+class PatePlat<< (S,#FF7700) Singleton >>{
+    #Ingredient pate;
+    #Sauce sauce;
+    -{static} PatePlat instance
+
+    -PatePlat()
+    +{static} getInstance()
+    +void generateRecette()
+    +String toString()
+}
+
+abstract class Recette{
+    +int nom
+    +DNutri decNut
+    #ArrayList<Ingredient> allIngredients
+    #ArrayList<Integer> quantities
+
+    +{abstract} void generateRecette()
+    +int getMasseTot()
+    +DNutri generateDecNut()
+    +void showDN()
+    +void addIngredient()
+}
+
+class Sauce{
+    +Sauce()
+    +String[] etapeRecette()
+    +Sauce clone()
+}
+
+class Soupe<< (S,#FF7700) Singleton >>{
+    -{static} Soupe instance
+    -Soupe()
+    +{static} Soupe getInstance()
+    +String toString()
+    +void generateRecette()
+}
+
+class InvalidDNutriException{
+    +InvalidDNutriException()
+}
+
+class Exception{}
+
+Exception <|-- InvalidDNutriException
+InvalidDNutriException  *--  DNutri : contains
+Ingredient <|-- Condiment
+Ingredient <|-- FLVVP
+Ingredient <|-- OtherIngredient
+Ingredient <|-- Sauce
+Recette <|-- Soupe
+Recette <|-- PatePlat
+Ingredient o-- Recette
+DNutri o-- Ingredient
+Sauce o-- PatePlat
+OtherIngredient o-- PatePlat
+
+
+@enduml

@@ -35,8 +35,6 @@ public class Soupe extends Recette {
 
         System.out.println((nb++) + "- Laissez bouillir pendant 15 minutes\n Et voilà !");
 
-        return;
-
     }
 
 }
