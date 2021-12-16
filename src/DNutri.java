@@ -75,6 +75,10 @@ public class DNutri {
     }
 
     public static DNutri meanDN(ArrayList<Ingredient> l, ArrayList<Integer> q) {
+        if (l.size() != q.size()) {
+            // TODO raise error
+            System.out.println("OULA C LA MERDE");
+        }
         DNutri decNut = new DNutri();
         for (int i = 0; i < l.size(); i++) {
             // TODO horrible code, would be better if i used a hash map
@@ -102,6 +106,18 @@ public class DNutri {
         decNut.amidon /= tot * 100;
         decNut.fibres /= tot * 100;
         return decNut;
+    }
+
+    public DNutri clone() {
+        return new DNutri(
+                energie,
+                gras,
+                glucides,
+                sucres,
+                proteine,
+                sel,
+                amidon,
+                fibres);
     }
 
 }
