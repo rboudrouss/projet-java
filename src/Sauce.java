@@ -19,4 +19,8 @@ public class Sauce extends Ingredient {
         return new String[] { "versez vos " + quantity + "g de sauce " + nom };
     }
 
+    public Sauce clone() {
+        return new Sauce(nom, decNut.clone());
+    }
+
 }

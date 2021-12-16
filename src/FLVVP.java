@@ -30,4 +30,8 @@ public class FLVVP extends Ingredient {
         return new String[] { "ajouter vos " + quantity + "g de " + super.nom };
     }
 
+    public FLVVP clone() {
+        return new FLVVP(nom, decNut.clone(), couper);
+    }
+
 }

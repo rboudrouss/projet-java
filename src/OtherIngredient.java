@@ -19,4 +19,8 @@ public class OtherIngredient extends Ingredient {
         return new String[] { "ajouter vos " + quantity + "g de " + nom };
     }
 
+    public OtherIngredient clone() {
+        return new OtherIngredient(nom, decNut.clone());
+    }
+
 }

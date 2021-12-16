@@ -19,4 +19,8 @@ public class Condiment extends Ingredient {
         return new String[] { "Ajouter une pincée de " + quantity + "g de " + super.nom };
     }
 
+    public Condiment clone() {
+        return new Condiment(nom, decNut.clone());
+    }
+
 }
