@@ -27,6 +27,6 @@ public abstract class Ingredient {
         this.decNut = dn;
     }
 
-    public abstract String etapeRecette();
+    public abstract String[] etapeRecette(int quantity);
 
 }

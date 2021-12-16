@@ -74,23 +74,23 @@ public class DNutri {
                 m.get("fibres"));
     }
 
-    public static DNutri fromLSizedIng(ArrayList<SizedIngredient> l) {
+    public static DNutri meanDN(ArrayList<Ingredient> l, ArrayList<Integer> q) {
         DNutri decNut = new DNutri();
         for (int i = 0; i < l.size(); i++) {
             // TODO horrible code, would be better if i used a hash map
-            decNut.energie += l.get(i).getDNutri().energie * l.get(i).getQuantity();
-            decNut.gras += l.get(i).getDNutri().gras * l.get(i).getQuantity();
-            decNut.glucides += l.get(i).getDNutri().glucides * l.get(i).getQuantity();
-            decNut.sucres += l.get(i).getDNutri().sucres * l.get(i).getQuantity();
-            decNut.proteine += l.get(i).getDNutri().proteine * l.get(i).getQuantity();
-            decNut.sel += l.get(i).getDNutri().sel * l.get(i).getQuantity();
-            decNut.amidon += l.get(i).getDNutri().amidon * l.get(i).getQuantity();
-            decNut.fibres += l.get(i).getDNutri().fibres * l.get(i).getQuantity();
+            decNut.energie += l.get(i).getDNutri().energie * q.get(i);
+            decNut.gras += l.get(i).getDNutri().gras * q.get(i);
+            decNut.glucides += l.get(i).getDNutri().glucides * q.get(i);
+            decNut.sucres += l.get(i).getDNutri().sucres * q.get(i);
+            decNut.proteine += l.get(i).getDNutri().proteine * q.get(i);
+            decNut.sel += l.get(i).getDNutri().sel * q.get(i);
+            decNut.amidon += l.get(i).getDNutri().amidon * q.get(i);
+            decNut.fibres += l.get(i).getDNutri().fibres * q.get(i);
         }
 
         int tot = 0;
-        for (SizedIngredient ing : l) {
-            tot += ing.getQuantity();
+        for (int i : q) {
+            tot += i;
         }
 
         decNut.energie /= tot * 100;
